@@ -1,3 +1,31 @@
+From 2991f37f0aaf44b9f9b11e7893ff0af8eb88f649 Mon Sep 17 00:00:00 2001
+From: Christopher Drelich <cd@cdrakka.com>
+Date: Wed, 23 May 2018 22:50:38 -0400
+Subject: [PATCH] Modifies quit to handle restarts and adds SIGHUP and SIGTERM
+ handlers.
+
+Modified quit() to restart if it receives arg .i = 1
+MOD+CTRL+SHIFT+Q was added to confid.def.h to do just that.
+
+Signal handlers were handled for SIGHUP and SIGTERM.
+If dwm receives these signals it calls quit() with
+arg .i = to 1 or 0, respectively.
+
+To restart dwm:
+MOD+CTRL+SHIFT+Q
+or
+kill -HUP dwmpid
+
+To quit dwm cleanly:
+MOD+SHIFT+Q
+or
+kill -TERM dwmpid
+---
+ config.def.h |  1 +
+ dwm.1        | 10 ++++++++++
+ dwm.c        | 22 ++++++++++++++++++++++
+ 3 files changed, 33 insertions(+)
+
 diff --git a/config.def.h b/config.def.h
 index a9ac303..e559429 100644
 --- a/config.def.h
@@ -106,3 +134,5 @@ index bb95e26..286eecd 100644
  	cleanup();
  	XCloseDisplay(dpy);
  	return EXIT_SUCCESS;
+-- 
+2.7.4
