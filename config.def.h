@@ -89,266 +89,181 @@ ResourcePref resources[] = {
 
 
 static const Key keys[] = {
-	/* modifier                        key              function                argument */
-	/* { MODKEY,                       XK_a,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_a,            noop,                   {} }, */
-	/* { MODKEY,                       XK_A,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_A,            noop,                   {} }, */
-	/* { MODKEY,                       XK_b,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_b,            noop,                   {} }, */
-	/* { MODKEY,                       XK_B,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_B,            noop,                   {} }, */
-	/* { MODKEY,                       XK_c,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_c,            noop,                   {} }, */
-	/* { MODKEY,                       XK_C,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_C,            noop,                   {} }, */
-	/* { MODKEY,                       XK_d,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_d,            noop,                   {} }, */
-	/* { MODKEY,                       XK_D,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_D,            noop,                   {} }, */
-	/* { MODKEY,                       XK_e,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_e,            noop,                   {} }, */
-	/* { MODKEY,                       XK_E,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_E,            noop,                   {} }, */
-	/* { MODKEY,                       XK_g,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_g,            noop,                   {} }, */
-	/* { MODKEY,                       XK_G,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_G,            noop,                   {} }, */
-	/* { MODKEY,                       XK_h,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_h,            noop,                   {} }, */
-	/* { MODKEY,                       XK_H,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_H,            noop,                   {} }, */
-	/* { MODKEY,                       XK_i,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_i,            noop,                   {} }, */
-	/* { MODKEY,                       XK_I,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_I,            noop,                   {} }, */
-	   { MODKEY,                       XK_j,            focusstack,             {.i = INC(+1)} }, 
-	/* { MODKEY|ControlMask,           XK_j,            noop,                   {} }, */
-	   { MODKEY,                       XK_J,            pushstack,              {.i = INC(+1)} },
-	/* { MODKEY|ControlMask,           XK_J,            noop,                   {} }, */
-	   { MODKEY,                       XK_k,            focusstack,             {.i = INC(-1)} },
-	/* { MODKEY|ControlMask,           XK_k,            noop,                   {} }, */
-	   { MODKEY,                       XK_K,            pushstack,              {.i = INC(-1)} },
-	/* { MODKEY|ControlMask,           XK_K,            noop,                   {} }, */
-	/* { MODKEY,                       XK_l,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_l,            noop,                   {} }, */
-	/* { MODKEY,                       XK_L,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_L,            noop,                   {} }, */
-	/* { MODKEY,                       XK_m,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_m,            noop,                   {} }, */
-	/* { MODKEY,                       XK_M,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_M,            noop,                   {} }, */
-	/* { MODKEY,                       XK_n,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_n,            noop,                   {} }, */
-	/* { MODKEY,                       XK_N,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_N,            noop,                   {} }, */
-	/* { MODKEY,                       XK_o,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_o,            noop,                   {} }, */
-	/* { MODKEY,                       XK_O,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_O,            noop,                   {} }, */
-	/* { MODKEY,                       XK_p,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_p,            noop,                   {} }, */
-	/* { MODKEY,                       XK_P,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_P,            noop,                   {} }, */
-	/* { MODKEY,                       XK_q,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_q,            noop,                   {} }, */
-	/* { MODKEY,                       XK_Q,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Q,            noop,                   {} }, */
-	/* { MODKEY,                       XK_r,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_r,            noop,                   {} }, */
-	/* { MODKEY,                       XK_R,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_R,            noop,                   {} }, */
-	/* { MODKEY,                       XK_s,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_s,            noop,                   {} }, */
-	/* { MODKEY,                       XK_S,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_S,            noop,                   {} }, */
-	/* { MODKEY,                       XK_t,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_t,            noop,                   {} }, */
-	/* { MODKEY,                       XK_T,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_T,            noop,                   {} }, */
-	/* { MODKEY,                       XK_u,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_u,            noop,                   {} }, */
-	/* { MODKEY,                       XK_U,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_U,            noop,                   {} }, */
-	/* { MODKEY,                       XK_v,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_v,            noop,                   {} }, */
-	/* { MODKEY,                       XK_V,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_V,            noop,                   {} }, */
-	/* { MODKEY,                       XK_w,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_w,            noop,                   {} }, */
-	/* { MODKEY,                       XK_W,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_W,            noop,                   {} }, */
-	/* { MODKEY,                       XK_x,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_x,            noop,                   {} }, */
-	/* { MODKEY,                       XK_X,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_X,            noop,                   {} }, */
-	/* { MODKEY,                       XK_y,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_y,            noop,                   {} }, */
-	/* { MODKEY,                       XK_Y,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Y,            noop,                   {} }, */
-	/* { MODKEY,                       XK_z,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_z,            noop,                   {} }, */
-	/* { MODKEY,                       XK_Z,            noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Z,            noop,                   {} }, */
-	/* { MODKEY,                       XK_BackSpace,    noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_BackSpace,    noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_BackSpace,    noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_BackSpace,    noop,                   {} }, */
-	/* { MODKEY,                       XK_Tab,          noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_Tab,          noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Tab,          noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Tab,          noop,                   {} }, */
-	   { MODKEY,                       XK_Return,       spawn,                  {.v=termcmd} }, 
-	/* { MODKEY|ShiftMask,             XK_Return,       togglescratch,          {.ui=0} }, */
-	/* { MODKEY|ControlMask,           XK_Return,       noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Return,       noop,                   {} }, */
-	/* { MODKEY,                       XK_Delete,       noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_Delete,       noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Delete,       noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Delete,       noop,                   {} }, */
-	   { MODKEY,                       XK_Left,         focusmon,               {.i = -1} },
-	   { MODKEY|ShiftMask,             XK_Left,         tagmon,                 {.i = -1} },
-	/* { MODKEY|ControlMask,           XK_Left,         noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Left,         noop,                   {} }, */
-	/* { MODKEY,                       XK_Up,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_Up,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Up,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Up,           noop,                   {} }, */
-	   { MODKEY,                       XK_Right,        focusmon,               {.i = +1} },
-	   { MODKEY|ShiftMask,             XK_Right,        tagmon,                 {.i = +1} },
-	/* { MODKEY|ControlMask,           XK_Right,        noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Right,        noop,                   {} }, */
-	/* { MODKEY,                       XK_Down,         noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_Down,         noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_Down,         noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_Down,         noop,                   {} }, */
-	   { MODKEY,                       XK_space,        zoom,                   {0} },
-	   { MODKEY|ShiftMask,             XK_space,        togglefloating,         {0} },
-	/* { MODKEY|ControlMask,           XK_space,        noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_space,        noop,                   {} }, */
-	/* { MODKEY,                       XK_semicolon,    noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_semicolon,    noop,                   {} }, */
-	/* { MODKEY,                       XK_colon,        noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_colon,        noop,                   {} }, */
-	/* { MODKEY,                       XK_comma,        noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_comma,        noop,                   {} }, */
-	/* { MODKEY,                       XK_less,         noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_less          noop,                   {} }, */
-	/* { MODKEY,                       XK_period,       noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_period,       noop,                   {} }, */
-	/* { MODKEY,                       XK_greater,      noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_greater,      noop,                   {} }, */
-	/* { MODKEY,                       XK_slash,        noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_slash,        noop,                   {} }, */
-	/* { MODKEY,                       XK_question,     noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_question,     noop,                   {} }, */
-	/* { MODKEY,                       XK_at,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_at,           noop,                   {} }, */
-	/* { MODKEY,                       XK_asciicircum,  noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_asciicircum,  noop,                   {} }, */
-	/* { MODKEY,                       XK_backslash,    noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_backslash,    noop,                   {} }, */
-	/* { MODKEY,                       XK_bar,          noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_bar,          noop,                   {} }, */
-	   { MODKEY,                       XK_minus,        spawn,                  SHCMD("changevol -2%; kill -44 $(pidof dwmblocks)") }, 
-	/* { MODKEY|ControlMask,           XK_minus,        noop,                   {} }, */
-	/* { MODKEY,                       XK_underscore,   noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_underscore,   noop,                   {} }, */
-	/* { MODKEY,                       XK_apostrophe,   noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_apostrophe,   noop,                   {} }, */
-	/* { MODKEY,                       XK_quotedbl,     togglescratch,          {.ui=1} }, */
-	/* { MODKEY|ControlMask,           XK_quotedbl,     noop,                   {} }, */
-	/* { MODKEY,                       XK_dollar,       noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_dollar,       noop,                   {} }, */
-	/* { MODKEY,                       XK_asciitilde,   noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_asciitilde,   noop,                   {} }, */
-	/* { MODKEY,                       XK_ampersand,    noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_ampersand,    noop,                   {} }, */
-	/* { MODKEY,                       XK_percent,      noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_percent,      noop,                   {} }, */
-	/* { MODKEY,                       XK_bracketleft,  noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_bracketleft,  noop,                   {} }, */
-	/* { MODKEY,                       XK_braceleft,    noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_braceleft,    noop,                   {} }, */
-	/* { MODKEY,                       XK_braceright,   noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_braceright,   noop,                   {} }, */
-	/* { MODKEY,                       XK_parenleft,    noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_parenleft,    noop,                   {} }, */
-	/* { MODKEY,                       XK_equal,        noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_equal,        noop,                   {} }, */
-	/* { MODKEY,                       XK_astrisk,      noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_astrisk,      noop,                   {} }, */
-	/* { MODKEY,                       XK_parenright,   noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_parenright,   noop,                   {} }, */
-	   { MODKEY,                       XK_plus,         spawn,                  SHCMD("changevol +2%; kill -44 $(pidof dwmblocks)") },
-        /* { MODKEY|ControlMask,           XK_plus,         noop,                   {} }, */
-	/* { MODKEY,                       XK_bracketright, noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_bracketright, noop,                   {} }, */
-	/* { MODKEY,                       XK_exclam,       noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_exclam,       noop,                   {} }, */
-	/* { MODKEY,                       XK_numbersign,   noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_numbersign,   noop,                   {} }, */
-	   { MODKEY,                       XK_grave,        spawn,                  {.v=(const char*[]){"dmenuunicode", NULL}} },
-	/* { MODKEY|ControlMask,           XK_grave,        noop,                   {} }, */
-	/* { MODKEY,                       XK_F1,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F1,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F1,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F1,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F2,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F2,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F2,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F2,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F3,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F3,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F3,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F3,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F4,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F4,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F4,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F4,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F5,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F5,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F5,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F5,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F6,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F6,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F6,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F6,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F7,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F7,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F7,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F7,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F8,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F8,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F8,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F8,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F9,           noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F9,           noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F9,           noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F9,           noop,                   {} }, */
-	/* { MODKEY,                       XK_F10,          noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F10,          noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F10,          noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F10,          noop,                   {} }, */
-	/* { MODKEY,                       XK_F12,          noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F12,          noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F12,          noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F12,          noop,                   {} }, */
-	/* { MODKEY,                       XK_F12,          noop,                   {} }, */
-	/* { MODKEY|ShiftMask,             XK_F12,          noop,                   {} }, */
-	/* { MODKEY|ControlMask,           XK_F12,          noop,                   {} }, */
-	/* { MODKEY|ControlMask|ShiftMask, XK_F12,          noop,                   {} }, */
-	   { MODKEY,                       XK_0,            view,                   {.ui=~0} },
-	   { MODKEY|ShiftMask,             XK_0,            tag,                    {.ui=~0} },
-             TAGKEYS(                      XK_1,                                    0)
-             TAGKEYS(                      XK_2,                                    1)
-             TAGKEYS(                      XK_3,                                    2)
-             TAGKEYS(                      XK_4,                                    3)
-             TAGKEYS(                      XK_5,                                    4)
-             TAGKEYS(                      XK_6,                                    5)
-             TAGKEYS(                      XK_7,                                    6)
-             TAGKEYS(                      XK_8,                                    7)
-             TAGKEYS(                      XK_9,                                    8)
+        /*   modifier                      key          function                argument */
+/*1*/   TAGKEYS(                           10,                                    0)
+/*2*/   TAGKEYS(                           11,                                    1)
+/*3*/   TAGKEYS(                           12,                                    2)
+/*4*/   TAGKEYS(                           13,                                    3)
+/*5*/   TAGKEYS(                           14,                                    4)
+/*6*/   TAGKEYS(                           15,                                    5)
+/*7*/   TAGKEYS(                           16,                                    6)
+/*8*/   TAGKEYS(                           17,                                    7)
+/*9*/   TAGKEYS(                           18,                                    8)
+/*0*/      { MODKEY,                       19,          view,                   {.ui=~0} },
+/*0*/   /* { MODKEY|ControlMask,           19,          noop,                   {} }, */
+/*)*/   /* { MODKEY|ShiftMask,             19,          noop,                   {} }, */
+/*)*/   /* { MODKEY|ControlMask|ShiftMask, 19,          noop,                   {} }, */
+/*-*/      { MODKEY,                       20,          spawn,                  SHCMD("changevol -2%; kill -44 $(pidof dwmblocks)") }, 
+/*-*/   /* { MODKEY|ControlMask,           20,          noop,                   {} }, */
+/*_*/      { MODKEY|ShiftMask,             20,          spawn,                  SHCMD("changevol -5%; kill -44 $(pidof dwmblocks)") }, 
+/*_*/   /* { MODKEY|ControlMask|ShiftMask, 20,          noop,                   {} }, */
+/*=*/      { MODKEY,                       21,          spawn,                  SHCMD("changevol +2%; kill -44 $(pidof dwmblocks)") },
+/*=*/   /* { MODKEY,                       21,          noop,                   {} }, */
+/*=*/   /* { MODKEY|ControlMask,           21,          noop,                   {} }, */
+/*+*/   /* { MODKEY|ShiftMask,             21,          noop,                   {} }, */
+/*+*/   /* { MODKEY|ControlMask|ShiftMask, 21,          noop,                   {} }, */
+/*q*/      { MODKEY,                       24,          killclient,             {0} },
+/*q*/   /* { MODKEY|ControlMask,           24,          noop,                   {} }, */
+/*Q*/   /* { MODKEY|ShiftMask,             24,          noop,                   {} }, */
+/*Q*/   /* { MODKEY|ControlMask|ShiftMask, 24,          noop,                   {} }, */
+/*w*/   /* { MODKEY,                       25,          noop,                   {} }, */
+/*w*/   /* { MODKEY|ControlMask,           25,          noop,                   {} }, */
+/*W*/   /* { MODKEY|ShiftMask,             25,          noop,                   {} }, */
+/*W*/   /* { MODKEY|ControlMask|ShiftMask, 25,          noop,                   {} }, */
+/*e*/   /* { MODKEY,                       26,          noop,                   {} }, */
+/*e*/   /* { MODKEY|ControlMask,           26,          noop,                   {} }, */
+/*E*/   /* { MODKEY|ShiftMask,             26,          noop,                   {} }, */
+/*E*/   /* { MODKEY|ControlMask|ShiftMask, 26,          noop,                   {} }, */
+/*r*/   /* { MODKEY,                       27,          noop,                   {} }, */
+/*r*/   /* { MODKEY|ControlMask,           27,          noop,                   {} }, */
+/*R*/   /* { MODKEY|ShiftMask,             27,          noop,                   {} }, */
+/*R*/   /* { MODKEY|ControlMask|ShiftMask, 27,          noop,                   {} }, */
+/*t*/   /* { MODKEY,                       28,          noop,                   {} }, */
+/*t*/   /* { MODKEY|ControlMask,           28,          noop,                   {} }, */
+/*T*/   /* { MODKEY|ShiftMask,             28,          noop,                   {} }, */
+/*T*/   /* { MODKEY|ControlMask|ShiftMask, 28,          noop,                   {} }, */
+/*y*/   /* { MODKEY,                       29,          noop,                   {} }, */
+/*y*/   /* { MODKEY|ControlMask,           29,          noop,                   {} }, */
+/*Y*/   /* { MODKEY|ShiftMask,             29,          noop,                   {} }, */
+/*Y*/   /* { MODKEY|ControlMask|ShiftMask, 29,          noop,                   {} }, */
+/*u*/   /* { MODKEY,                       30,          noop,                   {} }, */
+/*u*/   /* { MODKEY|ControlMask,           30,          noop,                   {} }, */
+/*U*/   /* { MODKEY|ShiftMask,             30,          noop,                   {} }, */
+/*U*/   /* { MODKEY|ControlMask|ShiftMask, 30,          noop,                   {} }, */
+/*i*/   /* { MODKEY,                       31,          noop,                   {} }, */
+/*i*/   /* { MODKEY|ControlMask,           31,          noop,                   {} }, */
+/*I*/   /* { MODKEY|ShiftMask,             31,          noop,                   {} }, */
+/*I*/   /* { MODKEY|ControlMask|ShiftMask, 31,          noop,                   {} }, */
+/*o*/   /* { MODKEY,                       32,          noop,                   {} }, */
+/*o*/   /* { MODKEY|ControlMask,           32,          noop,                   {} }, */
+/*O*/   /* { MODKEY|ShiftMask,             32,          noop,                   {} }, */
+/*O*/   /* { MODKEY|ControlMask|ShiftMask, 32,          noop,                   {} }, */
+/*p*/   /* { MODKEY,                       33,          noop,                   {} }, */
+/*p*/   /* { MODKEY|ControlMask,           33,          noop,                   {} }, */
+/*P*/   /* { MODKEY|ShiftMask,             33,          noop,                   {} }, */
+/*P*/   /* { MODKEY|ControlMask|ShiftMask, 33,          noop,                   {} }, */
+/*[*/   /* { MODKEY,                       34,          noop,                   {} }, */
+/*[*/   /* { MODKEY|ControlMask,           34,          noop,                   {} }, */
+/*{*/   /* { MODKEY|ShiftMask,             34,          noop,                   {} }, */
+/*{*/   /* { MODKEY|ControlMask|ShiftMask, 34,          noop,                   {} }, */
+/*]*/   /* { MODKEY,                       35,          noop,                   {} }, */
+/*]*/   /* { MODKEY|ControlMask,           35,          noop,                   {} }, */
+/*}*/   /* { MODKEY|ShiftMask,             35,          noop,                   {} }, */
+/*}*/   /* { MODKEY|ControlMask|ShiftMask, 35,          noop,                   {} }, */
+/*CR*/     { MODKEY,                       36,          spawn,                  {.v=termcmd} }, 
+/*CR*/  /* { MODKEY|ControlMask,           36,          noop,                   {} }, */
+/*CR*/  /* { MODKEY|ShiftMask,             36,          noop,                   {} }, */
+/*CR*/  /* { MODKEY|ControlMask|ShiftMask, 36,          noop,                   {} }, */
+/*a*/   /* { MODKEY,                       38,          noop,                   {} }, */
+/*a*/   /* { MODKEY|ControlMask,           38,          noop,                   {} }, */
+/*A*/   /* { MODKEY|ShiftMask,             38,          noop,                   {} }, */
+/*A*/   /* { MODKEY|ControlMask|ShiftMask, 38,          noop,                   {} }, */
+/*s*/   /* { MODKEY,                       39,          noop,                   {} }, */
+/*s*/   /* { MODKEY|ControlMask,           39,          noop,                   {} }, */
+/*S*/   /* { MODKEY|ShiftMask,             39,          noop,                   {} }, */
+/*S*/   /* { MODKEY|ControlMask|ShiftMask, 39,          noop,                   {} }, */
+/*d*/   /* { MODKEY,                       40,          noop,                   {} }, */
+/*d*/   /* { MODKEY|ControlMask,           40,          noop,                   {} }, */
+/*D*/   /* { MODKEY|ShiftMask,             40,          noop,                   {} }, */
+/*D*/   /* { MODKEY|ControlMask|ShiftMask, 40,          noop,                   {} }, */
+/*f*/   /* { MODKEY,                       41,          noop,                   {} }, */
+/*f*/   /* { MODKEY|ControlMask,           41,          noop,                   {} }, */
+/*F*/   /* { MODKEY|ShiftMask,             41,          noop,                   {} }, */
+/*F*/   /* { MODKEY|ControlMask|ShiftMask, 41,          noop,                   {} }, */
+/*g*/   /* { MODKEY,                       42,          noop,                   {} }, */
+/*g*/   /* { MODKEY|ControlMask,           42,          noop,                   {} }, */
+/*G*/   /* { MODKEY|ShiftMask,             42,          noop,                   {} }, */
+/*G*/   /* { MODKEY|ControlMask|ShiftMask, 42,          noop,                   {} }, */
+/*h*/      { MODKEY,                       43,          setmfact,               {.f = -0.05} },
+/*h*/   /* { MODKEY|ControlMask,           43,          noop,                   {} }, */
+/*H*/   /* { MODKEY|ShiftMask,             43,          noop,                   {} }, */
+/*H*/   /* { MODKEY|ControlMask|ShiftMask, 43,          noop,                   {} }, */
+/*j*/      { MODKEY,                       44,          focusstack,             {.i = +1} }, 
+/*j*/   /* { MODKEY|ControlMask,           44,          noop,                   {} }, */
+/*J*/   /* { MODKEY|ShiftMask,             44,          noop,                   {} }, */
+/*J*/   /* { MODKEY|ControlMask|ShiftMask, 44,          noop,                   {} }, */
+/*k*/      { MODKEY,                       45,          focusstack,             {.i = -1} },
+/*k*/   /* { MODKEY|ControlMask,           45,          noop,                   {} }, */
+/*K*/   /* { MODKEY|ShiftMask,             45,          noop,                   {} }, */
+/*K*/   /* { MODKEY|ControlMask|ShiftMask, 45,          noop,                   {} }, */
+/*l*/      { MODKEY,                       46,          setmfact,               {.f = +0.05} },
+/*l*/   /* { MODKEY|ControlMask,           46,          noop,                   {} }, */
+/*L*/   /* { MODKEY|ShiftMask,             46,          noop,                   {} }, */
+/*L*/   /* { MODKEY|ControlMask|ShiftMask, 46,          noop,                   {} }, */
+/*;*/   /* { MODKEY,                       47,          noop,                   {} }, */
+/*;*/   /* { MODKEY|ControlMask,           47,          noop,                   {} }, */
+/*:*/   /* { MODKEY|ShiftMask,             47,          noop,                   {} }, */
+/*:*/   /* { MODKEY|ControlMask|ShiftMask, 47,          noop,                   {} }, */
+/*'*/   /* { MODKEY,                       48,          noop,                   {} }, */
+/*'*/   /* { MODKEY|ControlMask,           48,          noop,                   {} }, */
+/*"*/   /* { MODKEY|ShiftMask,             48,          noop,                   {} }, */
+/*"*/   /* { MODKEY|ControlMask|ShiftMask, 48,          noop,                   {} }, */
+/*`*/   /* { MODKEY,                       49,          noop,                   {} }, */
+/*`*/   /* { MODKEY|ControlMask,           49,          noop,                   {} }, */
+/*~*/   /* { MODKEY|ShiftMask,             49,          noop,                   {} }, */
+/*~*/   /* { MODKEY|ControlMask|ShiftMask, 49,          noop,                   {} }, */
+/*z*/   /* { MODKEY,                       52,          noop,                   {} }, */
+/*z*/   /* { MODKEY|ControlMask,           52,          noop,                   {} }, */
+/*Z*/   /* { MODKEY|ShiftMask,             52,          noop,                   {} }, */
+/*Z*/   /* { MODKEY|ControlMask|ShiftMask, 52,          noop,                   {} }, */
+/*x*/   /* { MODKEY,                       53,          noop,                   {} }, */
+/*x*/   /* { MODKEY|ControlMask,           53,          noop,                   {} }, */
+/*X*/   /* { MODKEY|ShiftMask,             53,          noop,                   {} }, */
+/*X*/   /* { MODKEY|ControlMask|ShiftMask, 53,          noop,                   {} }, */
+/*c*/   /* { MODKEY,                       54,          noop,                   {} }, */
+/*c*/   /* { MODKEY|ControlMask,           54,          noop,                   {} }, */
+/*C*/   /* { MODKEY|ShiftMask,             54,          noop,                   {} }, */
+/*C*/   /* { MODKEY|ControlMask|ShiftMask, 54,          noop,                   {} }, */
+/*v*/   /* { MODKEY,                       55,          noop,                   {} }, */
+/*v*/   /* { MODKEY|ControlMask,           55,          noop,                   {} }, */
+/*V*/   /* { MODKEY|ShiftMask,             55,          noop,                   {} }, */
+/*V*/   /* { MODKEY|ControlMask|ShiftMask, 55,          noop,                   {} }, */
+/*b*/   /* { MODKEY,                       56,          noop,                   {} }, */
+/*b*/   /* { MODKEY|ControlMask,           56,          noop,                   {} }, */
+/*B*/   /* { MODKEY|ShiftMask,             56,          noop,                   {} }, */
+/*B*/   /* { MODKEY|ControlMask|ShiftMask, 56,          noop,                   {} }, */
+/*n*/   /* { MODKEY,                       57,          noop,                   {} }, */
+/*n*/   /* { MODKEY|ControlMask,           57,          noop,                   {} }, */
+/*N*/   /* { MODKEY|ShiftMask,             57,          noop,                   {} }, */
+/*N*/   /* { MODKEY|ControlMask|ShiftMask, 57,          noop,                   {} }, */
+/*m*/   /* { MODKEY,                       58,          noop,                   {} }, */
+/*m*/   /* { MODKEY|ControlMask,           58,          noop,                   {} }, */
+/*M*/   /* { MODKEY|ShiftMask,             58,          noop,                   {} }, */
+/*M*/   /* { MODKEY|ControlMask|ShiftMask, 58,          noop,                   {} }, */
+/*,*/   /* { MODKEY,                       59,          noop,                   {} }, */
+/*,*/   /* { MODKEY|ControlMask,           59,          noop,                   {} }, */
+/*<*/   /* { MODKEY|ShiftMask,             59,          noop,                   {} }, */
+/*<*/   /* { MODKEY|ControlMask|ShiftMask, 59,          noop,                   {} }, */
+/*.*/   /* { MODKEY,                       60,          noop,                   {} }, */
+/*.*/   /* { MODKEY|ControlMask,           60,          noop,                   {} }, */
+/*>*/   /* { MODKEY|ShiftMask,             60,          noop,                   {} }, */
+/*>*/   /* { MODKEY|ControlMask|ShiftMask, 60,          noop,                   {} }, */
+/*/*/   /* { MODKEY,                       61,          noop,                   {} }, */
+/*/*/   /* { MODKEY|ControlMask,           61,          noop,                   {} }, */
+/*?*/   /* { MODKEY|ShiftMask,             61,          noop,                   {} }, */
+/*?*/   /* { MODKEY|ControlMask|ShiftMask, 61,          noop,                   {} }, */
+/* */      { MODKEY,                       65,          zoom,                   {0} },
+/* */   /* { MODKEY|ControlMask,           65,          noop,                   {} }, */
+/* */      { MODKEY|ShiftMask,             65,          togglefloating,         {0} },
+/* */   /* { MODKEY|ControlMask|ShiftMask, 65,          noop,                   {} }, */
+/*->*/     { MODKEY,                       113,         focusmon,               {.i = -1} },
+/*->*/  /* { MODKEY|ControlMask,           113,          noop,                   {} }, */
+/*->*/     { MODKEY|ShiftMask,             113,         tagmon,                 {.i = -1} },
+/*->*/  /* { MODKEY|ControlMask|ShiftMask, 113,          noop,                   {} }, */
+/*<-*/     { MODKEY,                       114,        focusmon,               {.i = +1} },
+/*<-*/  /* { MODKEY|ControlMask,           114,          noop,                   {} }, */
+/*<-*/     { MODKEY|ShiftMask,             114,        tagmon,                 {.i = +1} },
+/*<-*/  /* { MODKEY|ControlMask|ShiftMask, 114,          noop,                   {} }, */
 };
 
 /* button definitions */
