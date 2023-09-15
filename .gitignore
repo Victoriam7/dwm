@@ -1,0 +1,6 @@
+.ccls
+.ccls-cache
+common.h
+compile_commands.json
+*.o
+dwm
