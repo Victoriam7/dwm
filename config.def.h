@@ -3,14 +3,15 @@
 #define TERMINAL "st"
 #define TERMCLASS "St"
 #define BROWSER "librewolf"
+#define STATUSBAR "dwmblocks"
 
 /* appearance */
-static unsigned int borderpx  = 1;        /* border pixel of windows */
+static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char font[]            = "monospace:size=10";
-static char dmenufont[]       = "monospace:size=10";
+static char font[]            = "Anonymice Nerd Font Mono:pixelsize=15";
+static char dmenufont[]       = "Anonymice Nerd Font Mono:pixelsize=15";
 static const char *fonts[]          = { font };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -257,13 +258,13 @@ static const Key keys[] = {
 /* */      { MODKEY|ShiftMask,             65,          togglefloating,         {0} },
 /* */   /* { MODKEY|ControlMask|ShiftMask, 65,          noop,                   {} }, */
 /*->*/     { MODKEY,                       113,         focusmon,               {.i = -1} },
-/*->*/  /* { MODKEY|ControlMask,           113,          noop,                   {} }, */
+/*->*/  /* { MODKEY|ControlMask,           113,         noop,                   {} }, */
 /*->*/     { MODKEY|ShiftMask,             113,         tagmon,                 {.i = -1} },
-/*->*/  /* { MODKEY|ControlMask|ShiftMask, 113,          noop,                   {} }, */
-/*<-*/     { MODKEY,                       114,        focusmon,               {.i = +1} },
-/*<-*/  /* { MODKEY|ControlMask,           114,          noop,                   {} }, */
-/*<-*/     { MODKEY|ShiftMask,             114,        tagmon,                 {.i = +1} },
-/*<-*/  /* { MODKEY|ControlMask|ShiftMask, 114,          noop,                   {} }, */
+/*->*/  /* { MODKEY|ControlMask|ShiftMask, 113,         noop,                   {} }, */
+/*<-*/     { MODKEY,                       114,         focusmon,               {.i = +1} },
+/*<-*/  /* { MODKEY|ControlMask,           114,         noop,                   {} }, */
+/*<-*/     { MODKEY|ShiftMask,             114,         tagmon,                 {.i = +1} },
+/*<-*/  /* { MODKEY|ControlMask|ShiftMask, 114,         noop,                   {} }, */
 };
 
 /* button definitions */
@@ -273,7 +274,9 @@ static const Button buttons[] = {
         { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
         { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
         { ClkWinTitle,          0,              Button2,        zoom,           {0} },
-        { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+        { ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+        { ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+        { ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
         { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
         { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
         { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
