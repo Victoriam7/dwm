@@ -4,3 +4,4 @@ common.h
 compile_commands.json
 *.o
 dwm
+config.h
