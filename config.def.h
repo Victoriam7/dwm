@@ -34,8 +34,9 @@ static const Rule rules[] = {
          *        WM_CLASS(STRING) = instance, class
          *        WM_NAME(STRING) = title
          */
-        /* class      instance    title       tags mask     isfloating   monitor */
-        { "Gimp",     NULL,       NULL,       1 << 8,       0,           0},  
+        /* class      instance    title          tags mask     isfloating   monitor    scratch key */
+        { NULL,       NULL,       "scratchpad",  0,            1,           -1,       's' },
+        { NULL,       NULL,       "calc",        0,            1,           -1,       'c' },
 };
 
 /* layout(s) */
@@ -66,6 +67,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
+
+/*First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
+static const char *calccmd[] = {"c", "st", "-e", "bc", NULL}; 
 
 /*
  * Xresources preferences to load at startup
@@ -171,7 +176,7 @@ static const Key keys[] = {
 /*}*/   /* {MODKEY|ControlMask|ShiftMask, 35,          noop,                   {}}, */
 /*CR*/     {MODKEY,                       36,          spawn,                  {.v=termcmd}}, 
 /*CR*/  /* {MODKEY|ControlMask,           36,          noop,                   {}}, */
-/*CR*/  /* {MODKEY|ShiftMask,             36,          noop,                   {}}, */
+/*CR*/     {MODKEY|ShiftMask,             36,          togglescratch,          {.v = scratchpadcmd}},
 /*CR*/  /* {MODKEY|ControlMask|ShiftMask, 36,          noop,                   {}}, */
 /*a*/   /* {MODKEY,                       38,          noop,                   {}}, */
 /*a*/   /* {MODKEY|ControlMask,           38,          noop,                   {}}, */
@@ -213,7 +218,7 @@ static const Key keys[] = {
 /*;*/   /* {MODKEY|ControlMask,           47,          noop,                   {}}, */
 /*:*/   /* {MODKEY|ShiftMask,             47,          noop,                   {}}, */
 /*:*/   /* {MODKEY|ControlMask|ShiftMask, 47,          noop,                   {}}, */
-/*'*/   /* {MODKEY,                       48,          noop,                   {}}, */
+/*'*/      {MODKEY,                       48,          togglescratch,          {.v = calccmd}},
 /*'*/   /* {MODKEY|ControlMask,           48,          noop,                   {}}, */
 /*"*/   /* {MODKEY|ShiftMask,             48,          noop,                   {}}, */
 /*"*/   /* {MODKEY|ControlMask|ShiftMask, 48,          noop,                   {}}, */
