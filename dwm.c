@@ -92,7 +92,9 @@ struct Client {
         int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
         int bw, oldbw;
         unsigned int tags;
-        int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
+        int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
+        int floatborderpx;
+        int hasfloatbw;
         char scratchkey;
         Client *next;
         Client *snext;
@@ -138,8 +140,11 @@ typedef struct {
         const char *instance;
         const char *title;
         unsigned int tags;
+        int iscentered;
         int isfloating;
         int monitor;
+        int floatx, floaty, floatw, floath;
+        int floatborderpx;
         const char scratchkey;
 } Rule;
 
@@ -312,6 +317,7 @@ applyrules(Client *c)
         XClassHint ch = { NULL, NULL };
 
         /* rule matching */
+        c->iscentered = 0;
         c->isfloating = 0;
         c->tags = 0;
         c->scratchkey = 0;
@@ -324,9 +330,20 @@ applyrules(Client *c)
                 if ((!r->title || strstr(c->name, r->title))
                 && (!r->class || strstr(class, r->class))
                 && (!r->instance || strstr(instance, r->instance))) {
+                        c->iscentered = r->iscentered;
                         c->isfloating = r->isfloating;
                         c->tags |= r->tags;
                         c->scratchkey = r->scratchkey;
+                        if (r->floatborderpx >= 0) {
+                                c->floatborderpx = r->floatborderpx;
+                                c->hasfloatbw = 1;
+                        }
+                        if (r->isfloating) {
+                                if (r->floatx >= 0) c->x = c->mon->mx + r->floatx;
+                                if (r->floaty >= 0) c->y = c->mon->my + r->floaty;
+                                if (r->floatw >= 0) c->w = r->floatw;
+                                if (r->floath >= 0) c->h = r->floath;
+                        }
                         for (m = mons; m && m->num != r->monitor; m = m->next);
                         if (m)
                                 c->mon = m;
@@ -1142,6 +1159,10 @@ manage(Window w, XWindowAttributes *wa)
         updatewindowtype(c);
         updatesizehints(c);
         updatewmhints(c);
+        if (c->iscentered) {
+                c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
+                c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
+        }
         XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
         grabbuttons(c, 0);
         if (!c->isfloating)
@@ -1366,7 +1387,10 @@ resizeclient(Client *c, int x, int y, int w, int h)
         c->oldy = c->y; c->y = wc.y = y;
         c->oldw = c->w; c->w = wc.width = w;
         c->oldh = c->h; c->h = wc.height = h;
-        wc.border_width = c->bw;
+        if (c->isfloating && c->hasfloatbw && !c->isfullscreen)
+                wc.border_width = c->floatborderpx;
+        else
+                wc.border_width = c->bw;
         XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
         configure(c);
         XSync(dpy, False);
@@ -2186,8 +2210,10 @@ updatewindowtype(Client *c)
 
         if (state == netatom[NetWMFullscreen])
                 setfullscreen(c, 1);
-        if (wtype == netatom[NetWMWindowTypeDialog])
+        if (wtype == netatom[NetWMWindowTypeDialog]) {
+                c->iscentered = 1;
                 c->isfloating = 1;
+        }
 }
 
 void

@@ -1,5 +1,5 @@
-dwm - dynamic window manager
-============================
+dwm - dynamic window manager (victoriam7's build)
+=================================================
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
@@ -46,3 +46,15 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+
+Patches
+-------
+hide vacant tags
+keycodes
+restartsig
+namedscratchpads
+statuscmd
+xresources
+floatrules
+center

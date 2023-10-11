@@ -6,6 +6,8 @@
 #define EMAIL "thunderbird"
 #define STATUSBAR "dwmblocks"
 
+#define SPTAG(i) ((1 << LENGTH(tags)) << (i))
+
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
@@ -34,9 +36,9 @@ static const Rule rules[] = {
          *        WM_CLASS(STRING) = instance, class
          *        WM_NAME(STRING) = title
          */
-        /* class      instance    title          tags mask     isfloating   monitor    scratch key */
-        { NULL,       NULL,       "scratchpad",  0,            1,           -1,       's' },
-        { NULL,       NULL,       "calc",        0,            1,           -1,       'c' },
+        /* class      instance    title          tags mask     iscentered  isfloating   monitor  float x,y,w,h         floatborderpx  scratch key */
+        { NULL,       NULL,       "spterm",      SPTAG(0),     1,          1,           -1,      -1,-1,-1,-1,          5,             's' },
+        { NULL,       NULL,       "spcalc",      SPTAG(1),     1,          1,           -1,      -1,-1,-1,-1,          5,             'c' },
 };
 
 /* layout(s) */
@@ -69,8 +71,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
-static const char *calccmd[] = {"c", "st", "-e", "bc", NULL}; 
+static const char *scratchpadcmd[] = {"s", "st", "-t", "spterm", "-g", "120x34", NULL}; 
+static const char *calccmd[] = {"c", "st", "-t", "spcalc", "-g", "50x20", "-e", "bc" , "-lq", NULL}; 
 
 /*
  * Xresources preferences to load at startup
