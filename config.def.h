@@ -192,7 +192,7 @@ static const Key keys[] = {
 /*d*/   /* {MODKEY|ControlMask,           40,          noop,                   {}}, */
 /*D*/   /* {MODKEY|ShiftMask,             40,          noop,                   {}}, */
 /*D*/   /* {MODKEY|ControlMask|ShiftMask, 40,          noop,                   {}}, */
-/*f*/   /* {MODKEY,                       41,          noop,                   {}}, */
+/*f*/      {MODKEY,                       41,          togglefullscr,          {0}},
 /*f*/   /* {MODKEY|ControlMask,           41,          noop,                   {}}, */
 /*F*/   /* {MODKEY|ShiftMask,             41,          noop,                   {}}, */
 /*F*/   /* {MODKEY|ControlMask|ShiftMask, 41,          noop,                   {}}, */

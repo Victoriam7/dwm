@@ -50,11 +50,12 @@ and (re)compiling the source code.
 
 Patches
 -------
+actualfullscreen
+center
+floatrules
 hide vacant tags
 keycodes
-restartsig
 namedscratchpads
+restartsig
 statuscmd
 xresources
-floatrules
-center
