@@ -51,6 +51,8 @@ static const Layout layouts[] = {
         /* symbol     arrange function */
         { "[]=",      tile },    /* first entry is default */
         { "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
         { "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -152,9 +154,9 @@ static const Key keys[] = {
 /*y*/   /* {MODKEY|ControlMask,           29,          noop,                   {}}, */
 /*Y*/   /* {MODKEY|ShiftMask,             29,          noop,                   {}}, */
 /*Y*/   /* {MODKEY|ControlMask|ShiftMask, 29,          noop,                   {}}, */
-/*u*/   /* {MODKEY,                       30,          noop,                   {}}, */
+/*u*/      {MODKEY,                       30,          setlayout,              {.v = &layouts[2]}}, /* centeredmaster */
 /*u*/   /* {MODKEY|ControlMask,           30,          noop,                   {}}, */
-/*U*/   /* {MODKEY|ShiftMask,             30,          noop,                   {}}, */
+/*U*/      {MODKEY|ShiftMask,             30,          setlayout,              {.v = &layouts[3]}}, /* centeredfloatingmaster */
 /*U*/   /* {MODKEY|ControlMask|ShiftMask, 30,          noop,                   {}}, */
 /*i*/   /* {MODKEY,                       31,          noop,                   {}}, */
 /*i*/   /* {MODKEY|ControlMask,           31,          noop,                   {}}, */
@@ -200,9 +202,9 @@ static const Key keys[] = {
 /*g*/   /* {MODKEY|ControlMask,           42,          noop,                   {}}, */
 /*G*/   /* {MODKEY|ShiftMask,             42,          noop,                   {}}, */
 /*G*/   /* {MODKEY|ControlMask|ShiftMask, 42,          noop,                   {}}, */
-/*h*/      {MODKEY,                       43,          setmfact,               {.f = -0.05}},
-/*h*/   /* {MODKEY|ControlMask,           43,          noop,                   {}}, */
-/*H*/   /* {MODKEY|ShiftMask,             43,          noop,                   {}}, */
+/*h*/      {MODKEY,                       43,          setmfact,               {.f = -0.01}},
+/*h*/      {MODKEY|ControlMask,           43,          setmfact,               {.f = -0.005}},
+/*H*/      {MODKEY|ShiftMask,             43,          setmfact,               {.f = -0.05}},
 /*H*/   /* {MODKEY|ControlMask|ShiftMask, 43,          noop,                   {}}, */
 /*j*/      {MODKEY,                       44,          focusstack,             {.i = +1}}, 
 /*j*/   /* {MODKEY|ControlMask,           44,          noop,                   {}}, */
@@ -212,9 +214,10 @@ static const Key keys[] = {
 /*k*/   /* {MODKEY|ControlMask,           45,          noop,                   {}}, */
 /*K*/   /* {MODKEY|ShiftMask,             45,          noop,                   {}}, */
 /*K*/   /* {MODKEY|ControlMask|ShiftMask, 45,          noop,                   {}}, */
-/*l*/      {MODKEY,                       46,          setmfact,               {.f = +0.05}},
+/*l*/      {MODKEY,                       46,          setmfact,               {.f = +0.01}},
+/*l*/      {MODKEY|ControlMask,           46,          setmfact,               {.f = +0.005}},
 /*l*/   /* {MODKEY|ControlMask,           46,          noop,                   {}}, */
-/*L*/   /* {MODKEY|ShiftMask,             46,          noop,                   {}}, */
+/*L*/      {MODKEY|ShiftMask,             46,          setmfact,               {.f = +0.05}},
 /*L*/   /* {MODKEY|ControlMask|ShiftMask, 46,          noop,                   {}}, */
 /*;*/   /* {MODKEY,                       47,          noop,                   {}}, */
 /*;*/   /* {MODKEY|ControlMask,           47,          noop,                   {}}, */
