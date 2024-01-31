@@ -113,14 +113,14 @@ static const Key keys[] = {
 /*0*/   /* {MODKEY|ControlMask,           19,          noop,                   {}}, */
 /*)*/   /* {MODKEY|ShiftMask,             19,          noop,                   {}}, */
 /*)*/   /* {MODKEY|ControlMask|ShiftMask, 19,          noop,                   {}}, */
-/*-*/      {MODKEY,                       20,          spawn,                  SHCMD("changevol -2%; kill -44 $(pidof dwmblocks)")}, 
+/*-*/      {MODKEY,                       20,          spawn,                  SHCMD("changevol 2%-; kill -44 $(pidof dwmblocks)")}, 
 /*-*/   /* {MODKEY|ControlMask,           20,          noop,                   {}}, */
-/*_*/      {MODKEY|ShiftMask,             20,          spawn,                  SHCMD("changevol -5%; kill -44 $(pidof dwmblocks)")}, 
+/*_*/      {MODKEY|ShiftMask,             20,          spawn,                  SHCMD("changevol 5%-; kill -44 $(pidof dwmblocks)")}, 
 /*_*/   /* {MODKEY|ControlMask|ShiftMask, 20,          noop,                   {}}, */
-/*=*/      {MODKEY,                       21,          spawn,                  SHCMD("changevol +2%; kill -44 $(pidof dwmblocks)")},
+/*=*/      {MODKEY,                       21,          spawn,                  SHCMD("changevol 2%-; kill -44 $(pidof dwmblocks)")},
 /*=*/   /* {MODKEY,                       21,          noop,                   {}}, */
 /*=*/   /* {MODKEY|ControlMask,           21,          noop,                   {}}, */
-/*+*/      {MODKEY|ShiftMask,             21,          spawn,                   SHCMD("changevol +5%; kill -44 $(pidof dwmblocks)")}, 
+/*+*/      {MODKEY|ShiftMask,             21,          spawn,                   SHCMD("changevol 5%-; kill -44 $(pidof dwmblocks)")}, 
 /*+*/   /* {MODKEY|ControlMask|ShiftMask, 21,          noop,                   {}}, */
 /*BS*/     {MODKEY,                       22,          spawn,                  {.v = (const char*[]){"sysact", NULL}}},
 /*BS*/  /* {MODKEY|ControlMask,           22,          noop,                   {}}, */
