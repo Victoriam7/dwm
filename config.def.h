@@ -3,7 +3,8 @@
 #define TERMINAL "st"
 #define TERMCLASS "St"
 #define BROWSER "librewolf"
-#define EMAIL "thunderbird"
+#define EMAIL "proton-mail"
+#define YOUTUBE "freetube"
 #define STATUSBAR "dwmblocks"
 
 #define SPTAG(i) ((1 << LENGTH(tags)) << (i))
@@ -196,7 +197,7 @@ static const Key keys[] = {
 /*D*/   /* {MODKEY|ControlMask|ShiftMask, 40,          noop,                   {}}, */
 /*f*/      {MODKEY,                       41,          togglefullscr,          {0}},
 /*f*/   /* {MODKEY|ControlMask,           41,          noop,                   {}}, */
-/*F*/   /* {MODKEY|ShiftMask,             41,          noop,                   {}}, */
+/*F*/      {MODKEY|ShiftMask,             41,          spawn,                  {.v = (const char*[]){YOUTUBE, NULL}}}, 
 /*F*/   /* {MODKEY|ControlMask|ShiftMask, 41,          noop,                   {}}, */
 /*g*/   /* {MODKEY,                       42,          noop,                   {}}, */
 /*g*/   /* {MODKEY|ControlMask,           42,          noop,                   {}}, */
