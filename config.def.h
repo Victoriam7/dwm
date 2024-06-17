@@ -177,7 +177,7 @@ static const Key keys[] = {
 /*I*/   /* {MODKEY|ShiftMask,             31,          noop,                   {}}, */
 /*I*/   /* {MODKEY|ControlMask|ShiftMask, 31,          noop,                   {}}, */
 /*o*/      {MODKEY,                       32,          incnmaster,             {.i = +1}},
-/*o*/   /* {MODKEY|ControlMask,           32,          noop,                   {}}, */
+/*o*/      {MODKEY|ControlMask,           32,          setcfact,               {.f = 0.00}},
 /*O*/      {MODKEY|ShiftMask,             32,          incnmaster,             {.i = -1}},
 /*O*/   /* {MODKEY|ControlMask|ShiftMask, 32,          noop,                   {}}, */
 /*p*/      {MODKEY,                       33,          spawn,                  SHCMD("mpc toggle")},
@@ -217,8 +217,8 @@ static const Key keys[] = {
 /*G*/   /* {MODKEY|ShiftMask,             42,          noop,                   {}}, */
 /*G*/   /* {MODKEY|ControlMask|ShiftMask, 42,          noop,                   {}}, */
 /*h*/      {MODKEY,                       43,          setmfact,               {.f = -0.01}},
-/*h*/      {MODKEY|ControlMask,           43,          setmfact,               {.f = -0.005}},
-/*H*/      {MODKEY|ShiftMask,             43,          setmfact,               {.f = -0.05}},
+/*h*/   /* {MODKEY|ControlMask,           43,          noop,                   {}}, */
+/*H*/      {MODKEY|ShiftMask,             43,          setcfact,               {.f = -0.05}}, 
 /*H*/   /* {MODKEY|ControlMask|ShiftMask, 43,          noop,                   {}}, */
 /*j*/      {MODKEY,                       44,          focusstack,             {.i = +1}}, 
 /*j*/   /* {MODKEY|ControlMask,           44,          noop,                   {}}, */
@@ -229,9 +229,8 @@ static const Key keys[] = {
 /*K*/   /* {MODKEY|ShiftMask,             45,          noop,                   {}}, */
 /*K*/   /* {MODKEY|ControlMask|ShiftMask, 45,          noop,                   {}}, */
 /*l*/      {MODKEY,                       46,          setmfact,               {.f = +0.01}},
-/*l*/      {MODKEY|ControlMask,           46,          setmfact,               {.f = +0.005}},
 /*l*/   /* {MODKEY|ControlMask,           46,          noop,                   {}}, */
-/*L*/      {MODKEY|ShiftMask,             46,          setmfact,               {.f = +0.05}},
+/*L*/      {MODKEY|ShiftMask,             46,          setcfact,               {.f = +0.05}}, 
 /*L*/   /* {MODKEY|ControlMask|ShiftMask, 46,          noop,                   {}}, */
 /*;*/   /* {MODKEY,                       47,          noop,                   {}}, */
 /*;*/   /* {MODKEY|ControlMask,           47,          noop,                   {}}, */
