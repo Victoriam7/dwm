@@ -62,8 +62,12 @@ static const Layout layouts[] = {
 #define TAGKEYS(KEY,TAG) \
         { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
         { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-        { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-        { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+		{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+		{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
+
+#define MONKEYS(KEY,TAG) \
+        { MODKEY,                       KEY,      focusnthmon,    {.i  = TAG } }, \
+        { MODKEY|ShiftMask,             KEY,      tagnthmon,      {.i  = TAG } },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -101,6 +105,15 @@ ResourcePref resources[] = {
 
 static const Key keys[] = {
         /*  modifier                      key          function                argument */
+/*F1*/  MONKEYS(                          67,                                    0)
+/*F2*/  MONKEYS(                          68,                                    1)
+/*F3*/  MONKEYS(                          69,                                    2)
+/*F4*/  MONKEYS(                          70,                                    3)
+/*F5*/  MONKEYS(                          71,                                    4)
+/*F6*/  MONKEYS(                          72,                                    5)
+/*F7*/  MONKEYS(                          73,                                    6)
+/*F8*/  MONKEYS(                          74,                                    7)
+/*F9*/  MONKEYS(                          75,                                    8)
 /*1*/   TAGKEYS(                          10,                                    0)
 /*2*/   TAGKEYS(                          11,                                    1)
 /*3*/   TAGKEYS(                          12,                                    2)
@@ -276,22 +289,23 @@ static const Key keys[] = {
 /* */   /* {MODKEY|ControlMask,           65,          noop,                   {}}, */
 /* */      {MODKEY|ShiftMask,             65,          togglefloating,         {0}},
 /* */   /* {MODKEY|ControlMask|ShiftMask, 65,          noop,                   {}}, */
-/*F1*/  /* {MODKEY,                       67,          noop,                   {}}, */
-/*F1*/  /* {MODKEY|ControlMask,           67,          noop,                   {}}, */
-/*F1*/  /* {MODKEY|ShiftMask,             67,          noop,                   {}}, */
-/*F1*/  /* {MODKEY|ControlMask|ShiftMask, 67,          noop,                   {}}, */
-/*F2*/  /* {MODKEY,                       68,          noop,                   {}}, */
-/*F2*/  /* {MODKEY|ControlMask,           68,          noop,                   {}}, */
-/*F2*/  /* {MODKEY|ShiftMask,             68,          noop,                   {}}, */
-/*F2*/  /* {MODKEY|ControlMask|ShiftMask, 68,          noop,                   {}}, */
-/*F3*/     {MODKEY,                       69,          spawn,                  {.v = (const char*[]){"displayselect", NULL}}},
-/*F3*/  /* {MODKEY|ControlMask,           69,          noop,                   {}}, */
-/*F3*/  /* {MODKEY|ShiftMask,             69,          noop,                   {}}, */
-/*F3*/  /* {MODKEY|ControlMask|ShiftMask, 69,          noop,                   {}}, */
+/*F1*/  /* {0,                            67,          noop,                   {}}, */
+/*F1*/  /* {0|ControlMask,                67,          noop,                   {}}, */
+/*F1*/  /* {0|ShiftMask,                  67,          noop,                   {}}, */
+/*F1*/  /* {0|ControlMask|ShiftMask,      67,          noop,                   {}}, */
+/*F2*/  /* {0,                            68,          noop,                   {}}, */
+/*F2*/  /* {0|ControlMask,                68,          noop,                   {}}, */
+/*F2*/  /* {0|ShiftMask,                  68,          noop,                   {}}, */
+/*F2*/  /* {0|ControlMask|ShiftMask,      68,          noop,                   {}}, */
+/*F3*/     {0,                            69,          spawn,                  {.v = (const char*[]){"displayselect", NULL}}},
+/*F3*/  /* {0|ControlMask,                69,          noop,                   {}}, */
+/*F3*/  /* {0|ShiftMask,                  69,          noop,                   {}}, */
+/*F3*/  /* {0|ControlMask|ShiftMask,      69,          noop,                   {}}, */
 /*PS*/     {0,                            107,         spawn,                  SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png")},
 /*PS*/     {ShiftMask,                    107,         spawn,                  {.v = (const char*[]){"maimpick", NULL}}},
 /*PS*/     {MODKEY,                       107,         spawn,                  {.v = (const char*[]){"dmenurecord", NULL}}},
 /*PS*/     {MODKEY|ShiftMask,             107,         spawn,                  {.v = (const char*[]){"dmenurecord", "kill", NULL}}},
+/*->*/     {MODKEY,                       113,         focusmon,               {.i = -1}},
 /*->*/  /* {MODKEY|ControlMask,           113,         noop,                   {}}, */
 /*->*/     {MODKEY|ShiftMask,             113,         tagmon,                 {.i = -1}},
 /*->*/  /* {MODKEY|ControlMask|ShiftMask, 113,         noop,                   {}}, */
