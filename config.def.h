@@ -180,17 +180,17 @@ static const Key keys[] = {
 /*o*/      {MODKEY|ControlMask,           32,          setcfact,               {.f = 0.00}},
 /*O*/      {MODKEY|ShiftMask,             32,          incnmaster,             {.i = -1}},
 /*O*/   /* {MODKEY|ControlMask|ShiftMask, 32,          noop,                   {}}, */
-/*p*/      {MODKEY,                       33,          spawn,                  SHCMD("mpc toggle")},
+/*p*/      {MODKEY,                       33,          spawn,                  SHCMD("ymp -t")},
 /*p*/   /* {MODKEY|ControlMask,           33,          noop,                   {}}, */
 /*P*/   /* {MODKEY|ShiftMask,             33,          noop,                   {}}, */
 /*P*/   /* {MODKEY|ControlMask|ShiftMask, 33,          noop,                   {}}, */
-/*[*/      {MODKEY,                       34,          spawn,                   {.v = (const char*[]){"mpc", "seek", "-10", NULL}}},
+/*[*/      {MODKEY,                       34,          spawn,                   {.v = (const char*[]){"ymp", "-s", "-5", NULL}}},
 /*[*/   /* {MODKEY|ControlMask,           34,          noop,                   {}}, */
-/*{*/      {MODKEY|ShiftMask,             34,          spawn,                   {.v = (const char*[]){"mpc", "seek", "-60", NULL}}},
+/*{*/      {MODKEY|ShiftMask,             34,          spawn,                   {.v = (const char*[]){"ymp", "-s", "-15", NULL}}},
 /*{*/   /* {MODKEY|ControlMask|ShiftMask, 34,          noop,                   {}}, */
-/*]*/      {MODKEY,                       35,          spawn,                   {.v = (const char*[]){"mpc", "seek", "+10", NULL}}},
+/*]*/      {MODKEY,                       35,          spawn,                   {.v = (const char*[]){"ymp", "-s", "+5", NULL}}},
 /*]*/   /* {MODKEY|ControlMask,           35,          noop,                   {}}, */
-/*}*/      {MODKEY|ShiftMask,             35,          spawn,                   {.v = (const char*[]){"mpc", "seek", "+60", NULL}}},
+/*}*/      {MODKEY|ShiftMask,             35,          spawn,                   {.v = (const char*[]){"ymp", "-s", "+15", NULL}}},
 /*}*/   /* {MODKEY|ControlMask|ShiftMask, 35,          noop,                   {}}, */
 /*CR*/     {MODKEY,                       36,          spawn,                  {.v=termcmd}}, 
 /*CR*/  /* {MODKEY|ControlMask,           36,          noop,                   {}}, */
